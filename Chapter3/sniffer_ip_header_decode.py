@@ -9,7 +9,7 @@ from ctypes import *
 
 # host to listen on
 HOST = "0.0.0.0"
-PORT  = 9999 
+PORT  = 9999
 
 class IP(Structure):
     _fields_ = [
@@ -47,7 +47,7 @@ class IP(Structure):
 
 
 def main():
-    print "[*] start main."
+    print "[*] Start main."
     # creae a raw socket and bind it to the public interface
     socket_protocol = socket.IPPROTO_ICMP
 
@@ -67,9 +67,11 @@ def main():
 
             # print out the protocol that was detected and the hosts
             print "Protocol: %s %s -> %s" % (ip_header.protocol, ip_header.src_address, ip_header.dst_adress)
+            print "IP version : %s" % (ip_header.version)
+            print "Internet header length : %s\n" % (ip_header.ihl)
 
     except ValueError as e:
-        print "[*]Exception Exiting."
+        print "[*] Exception Exiting."
         print str(e)
 
 if __name__ == "__main__":
