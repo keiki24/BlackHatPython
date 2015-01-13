@@ -37,7 +37,7 @@ def test_remote():
             print "[%d] => %s" % (response.code, path)
             response.close()
         except urllib2.URLError as error:
-            #print "Failed %s" % error.code
+            #print "Failed %s" % error.reason
             pass
         except urllib2.HTTPError as error:
             #print "Failed %s" % error.code
